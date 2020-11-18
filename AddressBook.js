@@ -40,7 +40,7 @@ class ContactDetails
     get address(){return this._address;}
     set address(address)
     {
-        let addressRegex = RegExp("^[A-Za-z]{4,}$");
+        let addressRegex = RegExp("^(?=.*[A-Za-z].*[A-Za-z].*[A-Za-z].*[A-Za-z])[A-Za-z ]*$");
         if(addressRegex.test(address))
             this._address= address;
         else
@@ -51,7 +51,7 @@ class ContactDetails
     get city(){return this._city;}
     set city(city)
     {
-        let cityRegex = RegExp("^[A-Za-z]{4,}$");
+        let cityRegex = RegExp("^(?=.*[A-Za-z].*[A-Za-z].*[A-Za-z].*[A-Za-z])[A-Za-z ]*$");
         if(cityRegex.test(city))
             this._city= city;
         else
@@ -62,7 +62,7 @@ class ContactDetails
     get state(){return this._state;}
     set state(state)
     {
-        let stateRegex = RegExp("^[A-Za-z]{4,}$");
+        let stateRegex = RegExp("^(?=.*[A-Za-z].*[A-Za-z].*[A-Za-z].*[A-Za-z])[A-Za-z ]*$");
         if(stateRegex.test(state))
             this._state= state;
         else
@@ -105,18 +105,29 @@ class ContactDetails
     // defining method toString()
     toString()
     {
-        return "first Name: "+this.firstName+", last Name: "+this.lastName+"\nAddress: "+ this.address+", City: "+ this.city+", State: "+this.state+"\nZip: "+this.zip+", Phone Number: "+this.phoneNumber+", email: "+this.email; 
+        return "\nfirst Name: "+this.firstName+", last Name: "+this.lastName+"\nAddress: "+ this.address+", City: "+ this.city+", State: "+this.state+"\nZip: "+this.zip+", Phone Number: "+this.phoneNumber+", email: "+this.email; 
     }
     
 }
 
-// Creating object for class Address book with parameters for constructor
+// UC 3 Creating a new addressbook array and adding contacts to it
+let contact;
 try
 {
-    let contact= new ContactDetails("Kamalakar","Rao","kadapattoor","pala","Kottayam","686 574","+918919810751","kamalakar@gmail.com");
-    console.log(contact.toString());
+    contact= new ContactDetails("Kamalakar","Rao","kadapattoor","pala","kerala","686 574","+918919810751","kamalakar@gmail.com");
+    let addressBook = new Array();
+    addressBook.push(contact);
+    addressBook.push(new ContactDetails("Mukesh","Ravi","this street","parvatipuram","Andhra","123456","8974569871","Mukesh@gmail.com"));
+    addressBook.push(new ContactDetails("Vishal","Garg","that street","hisar","Haryana","741258","7896321451","vishal@gmail.com"));
+    addressBook.push(new ContactDetails("Sahana","Gurunathan","street","Noida","Uttar Pradesh","456544","8906123456","sahana@gmail.com"));
+    addressBook.push(new ContactDetails("Charan","Rakam","nagar","Karimnagar","Telangana","123213","7996541252","charan@gmail.com"));
+    addressBook.push(new ContactDetails("Prasad","Kamakshi","Jp nagar","Nellore","Andhra","486213","9490476083","prasad@gmail.com"));
+    addressBook.push(new ContactDetails("Ramana","Kumar","Gandhi street","Warangal","Telangana","789632","9600577672","ramana@gmail.com"));
+    addressBook.forEach(p => console.log(p.toString()));
 }
 catch(e)
 {
     console.log(e);
 }
+
+
