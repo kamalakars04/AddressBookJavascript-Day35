@@ -112,10 +112,10 @@ class ContactDetails
 
 // UC 3 Creating a new addressbook array and adding contacts to it
 let contact;
+let addressBook = new Array();
 try
 {
     contact= new ContactDetails("Kamalakar","Rao","kadapattoor","pala","kerala","686 574","+918919810751","kamalakar@gmail.com");
-    let addressBook = new Array();
     addressBook.push(contact);
     addressBook.push(new ContactDetails("Mukesh","Ravi","this street","parvatipuram","Andhra","123456","8974569871","Mukesh@gmail.com"));
     addressBook.push(new ContactDetails("Vishal","Garg","that street","hisar","Haryana","741258","7896321451","vishal@gmail.com"));
@@ -130,4 +130,7 @@ catch(e)
     console.log(e);
 }
 
-
+// Edit existing contact
+let searchedContact = addressBook.filter(p => p.firstName == "Ramana" && p.lastName == "Kumar")[0];
+searchedContact.city = "Hyderabad";
+console.log(searchedContact.toString());
