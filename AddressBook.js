@@ -235,3 +235,19 @@ function ViewPersonsInState(State)
     console.log("No Contacts");
 }
 ViewPersonsInState("Andhra");
+
+// UC 10 Count Persons In state
+function CountPersonsInState(State)
+{
+    let countByState = addressBook.reduce(((count,contact) => {if(contact.state == State) return count+1; return count;}),0);
+    console.log("\nNo of contacts in State " +State+" are : "+countByState);
+}
+CountPersonsInState("Andhra");
+
+// UC 10 Count Persons In city
+function CountPersonsInCity(City)
+{
+    let countByCity = addressBook.reduce(((count,contact) => {if(contact.city == City) return count+1; return count;}),0);
+    console.log("\nNo of contacts in city "+City+" are : "+countByCity);
+}
+CountPersonsInCity("pala");
