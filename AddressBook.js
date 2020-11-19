@@ -182,7 +182,7 @@ GetCount();
 // UC 7 Check For Duplicates
 function CheckDuplicates(FirstName,LastName)
 {
-    searchedContact = addressBook.filter(p => p.firstName == FirstName && p.lastName == LastName)[0];
+    searchedContact = addressBook.some(p => p.firstName == FirstName && p.lastName == LastName)[0];
     var index = addressBook.indexOf(searchedContact);
     return index;
 }
@@ -190,3 +190,12 @@ function CheckDuplicates(FirstName,LastName)
 // Add new contact method
 addressBook.push(new ContactDetails("Mukesh","Kumar","this street","parvatipuram","Andhra","123456","8974569871","Mukesh@gmail.com"));
 addressBook.forEach(p => console.log(p.toString()));
+
+// UC 8 Search Person In city
+function SearchPersonInCity(FirstName,LastName,City)
+{
+    let filteredArray = addressBook.filter(p => p.firstName == FirstName && p.lastName == LastName && p.city == City);
+    console.log("\n\nSearched person in city "+ City);
+    filteredArray.forEach(p => console.log(p.toString()));
+}
+SearchPersonInCity("Mukesh","Kumar","parvatipuram");
