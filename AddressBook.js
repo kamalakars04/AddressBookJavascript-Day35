@@ -197,14 +197,41 @@ function SearchPersonInCity(FirstName,LastName,City)
     let filteredArray = addressBook.filter(p => p.firstName == FirstName && p.lastName == LastName && p.city == City);
     console.log("\n\nSearched person in city "+ City);
     filteredArray.forEach(p => console.log(p.toString()));
+    if(filteredArray.count == 0)
+    console.log("No Contacts");
 }
 SearchPersonInCity("Mukesh","Kumar","parvatipuram");
+
+// UC 8 Search Person In city
+function SearchPersonInState(FirstName,LastName,State)
+{
+    let filteredArray = addressBook.filter(p => p.firstName == FirstName && p.lastName == LastName && p.state == State);
+    console.log("\n\nSearched person in state "+ State);
+    filteredArray.forEach(p => console.log(p.toString()));
+    if(filteredArray.count == 0)
+    console.log("No Contacts");
+}
+SearchPersonInCity("Mukesh","Kumar","Andhra");
+
 
 // UC 9 view Persons In city
 function ViewPersonsInCity(City)
 {
     let filteredArray = addressBook.filter(p => p.city == City);
-    console.log("\n\viewed persons in city "+ City);
+    console.log("\n\nviewed persons in city "+ City);
     filteredArray.forEach(p => console.log(p.toString()));
+    if(filteredArray.count == 0)
+    console.log("No Contacts");
 }
 ViewPersonsInCity("pala");
+
+// UC 9 view Persons In city
+function ViewPersonsInState(State)
+{
+    let filteredArray = addressBook.filter(p => p.state == State);
+    console.log("\n\nviewed persons in city "+ State);
+    filteredArray.forEach(p => console.log(p.toString()));
+    if(filteredArray.count == 0)
+    console.log("No Contacts");
+}
+ViewPersonsInState("Andhra");
