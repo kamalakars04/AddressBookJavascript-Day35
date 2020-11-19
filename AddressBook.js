@@ -200,6 +200,16 @@ function SearchPersonInCity(FirstName,LastName,City)
 }
 SearchPersonInCity("Mukesh","Kumar","parvatipuram");
 
+// UC 8 Search Person In city
+function SearchPersonInState(FirstName,LastName,State)
+{
+    let filteredArray = addressBook.filter(p => p.firstName == FirstName && p.lastName == LastName && p.state == State);
+    console.log("\n\nSearched person in state "+ State);
+    filteredArray.forEach(p => console.log(p.toString()));
+}
+SearchPersonInCity("Mukesh","Kumar","Andhra");
+
+
 // UC 9 view Persons In city
 function ViewPersonsInCity(City)
 {
@@ -208,3 +218,12 @@ function ViewPersonsInCity(City)
     filteredArray.forEach(p => console.log(p.toString()));
 }
 ViewPersonsInCity("pala");
+
+// UC 9 view Persons In city
+function ViewPersonsInState(State)
+{
+    let filteredArray = addressBook.filter(p => p.state == State);
+    console.log("\n\viewed persons in city "+ State);
+    filteredArray.forEach(p => console.log(p.toString()));
+}
+ViewPersonsInCity("Andhra");
