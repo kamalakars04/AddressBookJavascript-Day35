@@ -4,6 +4,11 @@ class ContactDetails
     // Creating parametrized constructor
     constructor(...params)
     {
+        if(CheckDuplicates(params[0],params[1]) != -1)
+        {
+            console.log("Contact already exists");
+            return;
+        }
         this.firstName= params[0];
         this.lastName= params[1];
         this.address= params[2];
@@ -131,27 +136,57 @@ catch(e)
 }
 
 // UC 4 Edit existing contact
-try
+function EditContact(FirstName, LastName,field,newValue)
 {
-    let searchedContact = addressBook.filter(p => p.firstName == "Ramana" && p.lastName == "Kumar")[0];
-    searchedContact.city = "Hyderabad";
-    console.log(searchedContact.toString());
+    try
+    {
+        let searchedContact = addressBook.filter(p => p.firstName == FirstName && p.lastName == LastName)[0];
+        switch(field)
+        {
+            case "city":
+                searchedContact.city = newValue;
+                break;
+        }
+        console.log(searchedContact.toString());
+    }
+    catch
+    {
+        console.log("Contact not found");
+    }
 }
-catch
-{
-    console.log("Contact not found");
-}
-console.log("before delete"+ addressBook);
+EditContact("Ramana","Kumar","city","Hyderabad");  
 
 // UC 5 Delete existing contact
-searchedContact = addressBook.filter(p => p.firstName == "Ramana" && p.lastName == "Kumar")[0];
-var index = addressBook.indexOf(searchedContact);
-if (index != -1)
- {
-  addressBook.splice(index, 1);
+function DeleteContact(FirstName, LastName)
+{
+    searchedContact = addressBook.filter(p => p.firstName == FirstName && p.lastName == LastName)[0];
+    var index = addressBook.indexOf(searchedContact);
+    if (index != -1)
+    {
+        addressBook.splice(index, 1);
+    }
+    else
+        console.log("Contact not found");
 }
+DeleteContact("Ramana","Kumar");
 addressBook.forEach(p => console.log(p.toString()));
 
 // UC 6 Count number of contacts
-let count = addressBook.reduce(((count,contact) => {return count+1;}),0);
-console.log(count);
+function GetCount()
+{
+    let count = addressBook.reduce(((count,contact) => {return count+1;}),0);
+    console.log(count);
+}
+GetCount();
+
+// UC 7 Check For Duplicates
+function CheckDuplicates(FirstName,LastName)
+{
+    searchedContact = addressBook.filter(p => p.firstName == FirstName && p.lastName == LastName)[0];
+    var index = addressBook.indexOf(searchedContact);
+    return index;
+}
+
+// Add new contact method
+addressBook.push(new ContactDetails("Mukesh","Kumar","this street","parvatipuram","Andhra","123456","8974569871","Mukesh@gmail.com"));
+addressBook.forEach(p => console.log(p.toString()));
