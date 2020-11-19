@@ -251,3 +251,13 @@ function CountPersonsInCity(City)
     console.log("\nNo of contacts in city "+City+" are : "+countByCity);
 }
 CountPersonsInCity("pala");
+
+// UC 11 Sort by person name
+function SortByPersonName()
+{
+    let sortedArray = addressBook;
+    sortedArray.sort((a,b) => a.firstName.toLowerCase().localeCompare(b.firstName.toLowerCase()));
+    console.log("\n\nPrinting sorted array by person name : ");
+    sortedArray.forEach(p => console.log(p.toString()));
+}
+SortByPersonName();
