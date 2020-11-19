@@ -130,7 +130,24 @@ catch(e)
     console.log(e);
 }
 
-// Edit existing contact
-let searchedContact = addressBook.filter(p => p.firstName == "Ramana" && p.lastName == "Kumar")[0];
-searchedContact.city = "Hyderabad";
-console.log(searchedContact.toString());
+// UC 4 Edit existing contact
+try
+{
+    let searchedContact = addressBook.filter(p => p.firstName == "Ramana" && p.lastName == "Kumar")[0];
+    searchedContact.city = "Hyderabad";
+    console.log(searchedContact.toString());
+}
+catch
+{
+    console.log("Contact not found");
+}
+console.log("before delete"+ addressBook);
+
+// UC 5 Delete existing contact
+searchedContact = addressBook.filter(p => p.firstName == "Ramana" && p.lastName == "Kumar")[0];
+var index = addressBook.indexOf(searchedContact);
+if (index != -1)
+ {
+  addressBook.splice(index, 1);
+}
+addressBook.forEach(p => console.log(p.toString()));
