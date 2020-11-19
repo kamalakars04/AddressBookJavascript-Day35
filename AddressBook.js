@@ -199,3 +199,12 @@ function SearchPersonInCity(FirstName,LastName,City)
     filteredArray.forEach(p => console.log(p.toString()));
 }
 SearchPersonInCity("Mukesh","Kumar","parvatipuram");
+
+// UC 9 view Persons In city
+function ViewPersonsInCity(City)
+{
+    let filteredArray = addressBook.filter(p => p.city == City);
+    console.log("\n\viewed persons in city "+ City);
+    filteredArray.forEach(p => console.log(p.toString()));
+}
+ViewPersonsInCity("pala");
