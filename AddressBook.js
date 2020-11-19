@@ -261,3 +261,33 @@ function SortByPersonName()
     sortedArray.forEach(p => console.log(p.toString()));
 }
 SortByPersonName();
+
+// UC 12 Sort by city
+function SortByCity()
+{
+    let sortedArray = addressBook;
+    sortedArray.sort((a,b) => a.city.toLowerCase().localeCompare(b.city.toLowerCase()));
+    console.log("\n\nPrinting sorted array by city : ");
+    sortedArray.forEach(p => console.log(p.toString()));
+}
+SortByCity();
+
+// UC 12 Sort by zip
+function SortByZip()
+{
+    let sortedArray = addressBook;
+    sortedArray.sort((a,b) => a.zip.toLowerCase().localeCompare(b.zip.toLowerCase()));
+    console.log("\n\nPrinting sorted array byzip : ");
+    sortedArray.forEach(p => console.log(p.toString()));
+}
+SortByZip();
+
+// UC 11 Sort by person name
+function SortByState()
+{
+    let sortedArray = addressBook;
+    sortedArray.sort((a,b) => a.state.toLowerCase().localeCompare(b.state.toLowerCase()));
+    console.log("\n\nPrinting sorted array by State : ");
+    sortedArray.forEach(p => console.log(p.toString()));
+}
+SortByState();
