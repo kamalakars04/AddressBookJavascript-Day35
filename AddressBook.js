@@ -151,3 +151,7 @@ if (index != -1)
   addressBook.splice(index, 1);
 }
 addressBook.forEach(p => console.log(p.toString()));
+
+// UC 6 Count number of contacts
+let count = addressBook.reduce(((count,contact) => {return count+1;}),0);
+console.log(count);
